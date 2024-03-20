@@ -1,6 +1,6 @@
-/*
-package Project.diary.config;
 
+package Project.diary.config;
+import Project.diary.entity.CustomUser;
 import Project.diary.entity.User;
 import Project.diary.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,11 +20,15 @@ public class MyUserDetailsService implements UserDetailsService {
         User user = userService.findOne(insertedUserName)
                 .orElseThrow(() -> new UsernameNotFoundException("회원이 존재하지 않습니다!"));
 
-        // 여기서 차차 확장해나가야함
-        return org.springframework.security.core.userdetails.User.builder()
-                .username(user.getUserid())
-                .password(user.getPassword())
-                .build();
+        String nickname = user.getNickname();
+
+        CustomUser customUser = new CustomUser(
+                user.getUserid(),
+                user.getPassword(),
+                user.getNickname()
+        );
+
+        return customUser;
     }
 }
-*/
+

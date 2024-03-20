@@ -13,11 +13,11 @@
 
 <body>
 <div class="container">
-    <form class="form-signin" method="post" action="/login-process">
+    <form class="form-signin" method="post" action="/login-proc">
         <p class="text-center">
-            <img src="/images/nahwasa-profile.png" class="img-thumbnail" style="width: 200px;" alt="이 글이 보인다면 시큐리티 설정 잘못한거임!">
+            <img src="/images/profile.png" class="img-thumbnail" style="width: 200px;" alt="이 글이 보인다면 시큐리티 설정 잘못한거임!">
         </p>
-        <h2 class="form-signin-heading text-center mb-5">nahwasa.com</h2>
+        <h2 class="form-signin-heading text-center mb-5">Kulastro</h2>
 
         <p>
             <label for="username" class="sr-only">아이디</label>
@@ -27,6 +27,8 @@
             <label for="password" class="sr-only">비밀번호</label>
             <input type="password" id="password" name="pw" class="form-control" placeholder="비밀번호" required="">
         </p>
+
+
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="login_btn">로그인</button>
     </form>
 
@@ -34,13 +36,7 @@
         <button class="btn btn-lg btn-warning btn-block" type="submit">회원가입하기</button>
     </form>
 
-    <script>
-        const loginBtn = document.getElementById('login_btn');
 
-        loginBtn.addEventListener('click', () => {
-            sessionStorage.setItem('userid', document.getElementById('username').value);
-        });
-    </script>
 </div>
 </body>
 </html>

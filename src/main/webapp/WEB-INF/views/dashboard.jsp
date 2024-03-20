@@ -13,15 +13,15 @@
 
 <body>
 <div class="container">
-    <h3 class="form-signin-heading text-center mb-5">nahwasa.com</h3>
+    <h3 class="form-signin-heading text-center mb-5">Kulastro </h3>
+    <img src="/images/profile.png" class="img-thumbnail" style="width: 200px;" alt="이 글이 보인다면 시큐리티 설정 잘못한거임!">
 
-    <h3 class="overview-normalize">접속 아이디</h3>
-    <p id='login_id'>
-    </p>
+    <h3 class="overview-normalize">${login_nickname} 님 환영합니다!</h3>
+
+    <button onclick="location.href='/view/user_change'" class="btn btn-sm btn-success">회원 정보 수정</button>
+
     <hr/>
-    <h3 class="overview-normalize">역할</h3>
-    <p id='pw'>
-    </p>
+
     <hr/>
     <h3 class="overview-normalize">역할에 따른 페이지 이동 권한 확인</h3>
     <p>
@@ -33,15 +33,7 @@
         <button class="btn btn-sm btn-danger btn-block" type="submit" id="logout_btn">로그아웃</button>
     </form>
 
-    <script>
-        const loginId = document.getElementById('login_id');
-        loginId.innerHTML = sessionStorage.getItem('userid');
 
-        const logoutBtn = document.getElementById('logout_btn');
-        logoutBtn.addEventListener('click', () => {
-            sessionStorage.setItem('userid', '');
-        });
-    </script>
 </div>
 </body>
 </html>

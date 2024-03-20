@@ -11,11 +11,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class RegisterMemberService {
+
+    private final  PasswordEncoder passwordEncoder;
     private final UserRepository repository;
 
-
     public Long join(String userid, String password, String nickname) {
-        User user = User.createUser(userid, password, nickname);
+        String encodedPassword = passwordEncoder.encode(password);
+        User user = User.createUser(userid, encodedPassword, nickname);
         validateDuplicateUser(user);
         repository.save(user);
 

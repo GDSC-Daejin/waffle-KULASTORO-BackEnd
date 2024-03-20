@@ -22,7 +22,7 @@ public class User {
     private String userid;
 
     @NotNull
-    @Column(length=12) // 최대길이 12
+    @Column(length=255)
     private String password;
 
     @Column(nullable = false)
@@ -30,9 +30,13 @@ public class User {
 
     protected User() {}
 
-    public static User createUser(String userid, String password,  String nickname) {
+    public static User createUser(String userid, String password, String nickname) {
         return new User(null, userid, password, nickname);
     }
 
+    public void modify(String nickname, String password) {
+        this.nickname = nickname;
+        this.password = password;
+    }
 
 }

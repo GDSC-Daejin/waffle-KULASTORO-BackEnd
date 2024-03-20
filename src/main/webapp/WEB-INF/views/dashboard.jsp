@@ -19,6 +19,11 @@
     <h3 class="overview-normalize">${login_nickname} 님 환영합니다!</h3>
 
     <button onclick="location.href='/view/user_change'" class="btn btn-sm btn-success">회원 정보 수정</button>
+<%--    <button onclick="location.href='/auth/delete'" class="btn btn-sm btn-success">회원 탈퇴</button>--%>
+
+    <form id="deleteForm">
+        <button class="btn btn-sm btn-success" type="button" onclick="deleteUser()">회원 탈퇴</button>
+    </form>
 
     <hr/>
 
@@ -34,6 +39,29 @@
     </form>
 
 
+    <script>
+        function deleteUser() {
+            fetch('/auth/delete', {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // 성공적으로 삭제되었을 때 수행할 작업
+                        console.log('사용자가 성공적으로 삭제되었습니다.');
+                        window.location.href = '/view/login';
+                    } else {
+                        // 삭제에 실패한 경우 처리
+                        console.error('사용자 삭제에 실패했습니다.');
+                    }
+                })
+                .catch(error => {
+                    console.error('오류 발생:', error);
+                });
+        }
+    </script>
+
 </div>
+
 </body>
+
 </html>

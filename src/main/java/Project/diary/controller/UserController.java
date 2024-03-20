@@ -1,9 +1,11 @@
 package Project.diary.controller;
 
 import Project.diary.dto.UserJoinDTO;
+import Project.diary.dto.UserLoginDTO;
 import Project.diary.dto.UserRequestDTO;
 import Project.diary.entity.CustomUser;
 import Project.diary.entity.User;
+import Project.diary.repository.UserRepository;
 import Project.diary.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +16,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @Controller
@@ -30,6 +30,8 @@ public class UserController {
 
 
     private final AuthenticationManager authenticationManager;
+
+    private final UserRepository userRepository;
 
 
     @GetMapping("/view/join")
@@ -63,5 +65,21 @@ public class UserController {
     }
 
 
+//    @DeleteMapping("/auth/delete")
+//    public ResponseEntity<String> deleteUser(@RequestBody UserLoginDTO dto) {
+//       userRepository.
+//
+//    }
 
+
+    @DeleteMapping("/auth/delete")
+    public ResponseEntity<String> deleteUser(@AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
+
+        // 사용자 정보로 사용자를 찾아서 삭제
+        userRepository.findByUserid(username).ifPresent(userRepository::delete);
+
+        return ResponseEntity.ok("회원이 탈퇴되었습니다.");
+    }
 }
+

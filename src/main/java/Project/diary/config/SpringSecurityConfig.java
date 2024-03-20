@@ -43,7 +43,7 @@ public class SpringSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .requestMatchers( "view/join", "/status", "/auth/join", "/images/**", "auth/update").permitAll() // 예외처리(인증없이도 들어가는)
+                        .requestMatchers( "view/join", "/status", "/auth/join", "/images/**", "auth/update", "auth/delete").permitAll() // 예외처리(인증없이도 들어가는)
                         .anyRequest().authenticated()// 어떤 요청이든 로그인해야함
                 )
                 .formLogin((formLogin) -> formLogin

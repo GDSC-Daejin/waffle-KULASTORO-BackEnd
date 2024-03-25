@@ -1,0 +1,106 @@
+2024-03-21T03:56:22.809+09:00  INFO 47310 --- [main] Project.diary.DiaryApplication           : Starting DiaryApplication using Java 18.0.2.1 with PID 47310 (/Users/ryuheesu/Desktop/Diary-spring<GDSC>/diary/build/classes/java/main started by ryuheesu in /Users/ryuheesu/Desktop/Diary-spring<GDSC>/diary)
+2024-03-21T03:56:22.818+09:00  INFO 47310 --- [main] Project.diary.DiaryApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-21T03:56:23.879+09:00  INFO 47310 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21T03:56:23.939+09:00  INFO 47310 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
+2024-03-21T03:56:24.751+09:00  INFO 47310 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-21T03:56:24.761+09:00  INFO 47310 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-21T03:56:24.761+09:00  INFO 47310 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-21T03:56:25.192+09:00  INFO 47310 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-03-21T03:56:25.202+09:00  INFO 47310 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-21T03:56:25.203+09:00  INFO 47310 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2306 ms
+2024-03-21T03:56:25.394+09:00  INFO 47310 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21T03:56:25.434+09:00  INFO 47310 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-21T03:56:25.457+09:00  INFO 47310 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-21T03:56:25.707+09:00  INFO 47310 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21T03:56:25.728+09:00  INFO 47310 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-21T03:56:26.075+09:00  INFO 47310 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67f591c2
+2024-03-21T03:56:26.077+09:00  INFO 47310 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-21T03:56:26.142+09:00  WARN 47310 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-21T03:56:26.946+09:00  INFO 47310 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21T03:56:27.012+09:00  INFO 47310 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21T03:56:27.594+09:00  WARN 47310 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-21T03:56:27.940+09:00  INFO 47310 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2e9f5499, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30f54522, org.springframework.security.web.context.SecurityContextHolderFilter@61a17f3, org.springframework.security.web.header.HeaderWriterFilter@1e65c4d, org.springframework.security.web.authentication.logout.LogoutFilter@2dc72c0c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2cbae0f1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a3e8b68, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5935eb9c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5af47414, org.springframework.security.web.access.ExceptionTranslationFilter@768f2398, org.springframework.security.web.access.intercept.AuthorizationFilter@72155315]
+2024-03-21T03:56:28.343+09:00  INFO 47310 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-21T03:56:28.358+09:00  INFO 47310 --- [main] Project.diary.DiaryApplication           : Started DiaryApplication in 6.202 seconds (process running for 6.925)
+2024-03-21T03:56:28.452+09:00  INFO 47310 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-21T03:56:28.454+09:00  INFO 47310 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-21T03:56:28.457+09:00  INFO 47310 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-03-21T03:56:28.485+09:00 DEBUG 47310 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /view/join?
+2024-03-21T03:56:28.493+09:00 DEBUG 47310 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /view/join?
+2024-03-21T03:56:28.570+09:00 DEBUG 47310 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /WEB-INF/views/join.jsp?
+2024-03-21T03:56:28.570+09:00 DEBUG 47310 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /WEB-INF/views/join.jsp?
+2024-03-21T03:56:29.362+09:00 DEBUG 47310 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:56:32.690+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /auth/join
+2024-03-21T03:56:32.704+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /auth/join
+2024-03-21T03:56:32.941+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /WEB-INF/views/view/join.jsp
+2024-03-21T03:56:32.943+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /WEB-INF/views/view/join.jsp
+2024-03-21T03:56:32.945+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:56:32.947+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /error
+2024-03-21T03:56:32.948+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:56:32.953+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost:8080/error?continue to session
+2024-03-21T03:56:32.955+09:00 DEBUG 47310 --- [http-nio-8080-exec-2] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/view/login
+2024-03-21T03:56:32.962+09:00 DEBUG 47310 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /view/login
+2024-03-21T03:56:32.963+09:00 DEBUG 47310 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /view/login
+2024-03-21T03:56:32.968+09:00 DEBUG 47310 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /WEB-INF/views/login.jsp
+2024-03-21T03:56:32.969+09:00 DEBUG 47310 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /WEB-INF/views/login.jsp
+2024-03-21T03:56:33.131+09:00 DEBUG 47310 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:58:09.801+09:00  INFO 47310 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21T03:58:09.807+09:00  INFO 47310 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-21T03:58:09.822+09:00  INFO 47310 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-21T03:58:14.370+09:00  INFO 47356 --- [main] Project.diary.DiaryApplication           : Starting DiaryApplication using Java 18.0.2.1 with PID 47356 (/Users/ryuheesu/Desktop/Diary-spring<GDSC>/diary/build/classes/java/main started by ryuheesu in /Users/ryuheesu/Desktop/Diary-spring<GDSC>/diary)
+2024-03-21T03:58:14.387+09:00  INFO 47356 --- [main] Project.diary.DiaryApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-21T03:58:15.630+09:00  INFO 47356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21T03:58:15.703+09:00  INFO 47356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interface.
+2024-03-21T03:58:16.614+09:00  INFO 47356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-21T03:58:16.627+09:00  INFO 47356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-21T03:58:16.627+09:00  INFO 47356 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-21T03:58:16.971+09:00  INFO 47356 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-03-21T03:58:16.982+09:00  INFO 47356 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-21T03:58:16.983+09:00  INFO 47356 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2510 ms
+2024-03-21T03:58:17.187+09:00  INFO 47356 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21T03:58:17.227+09:00  INFO 47356 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-21T03:58:17.251+09:00  INFO 47356 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-21T03:58:17.508+09:00  INFO 47356 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21T03:58:17.528+09:00  INFO 47356 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-21T03:58:17.874+09:00  INFO 47356 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2335aef2
+2024-03-21T03:58:17.876+09:00  INFO 47356 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-21T03:58:17.931+09:00  WARN 47356 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-21T03:58:18.661+09:00  INFO 47356 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21T03:58:18.730+09:00  INFO 47356 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21T03:58:19.308+09:00  WARN 47356 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-21T03:58:19.640+09:00  INFO 47356 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2dc72c0c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1dc28c66, org.springframework.security.web.context.SecurityContextHolderFilter@2c5b4b91, org.springframework.security.web.header.HeaderWriterFilter@160d68b8, org.springframework.security.web.authentication.logout.LogoutFilter@356cb230, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3f2feab7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76c2d002, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@55589ef5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f97e963, org.springframework.security.web.access.ExceptionTranslationFilter@39a1c200, org.springframework.security.web.access.intercept.AuthorizationFilter@6894436e]
+2024-03-21T03:58:20.106+09:00  INFO 47356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-21T03:58:20.120+09:00  INFO 47356 --- [main] Project.diary.DiaryApplication           : Started DiaryApplication in 6.447 seconds (process running for 7.242)
+2024-03-21T03:58:28.237+09:00  INFO 47356 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-21T03:58:28.238+09:00  INFO 47356 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-21T03:58:28.240+09:00  INFO 47356 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-03-21T03:58:28.255+09:00 DEBUG 47356 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /view/join?
+2024-03-21T03:58:28.262+09:00 DEBUG 47356 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /view/join?
+2024-03-21T03:58:28.312+09:00 DEBUG 47356 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /WEB-INF/views/join.jsp?
+2024-03-21T03:58:28.312+09:00 DEBUG 47356 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /WEB-INF/views/join.jsp?
+2024-03-21T03:58:29.164+09:00 DEBUG 47356 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:58:31.325+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /auth/join
+2024-03-21T03:58:31.332+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /auth/join
+2024-03-21T03:58:31.588+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /WEB-INF/views/view/join.jsp
+2024-03-21T03:58:31.590+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /WEB-INF/views/view/join.jsp
+2024-03-21T03:58:31.593+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:58:31.595+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /error
+2024-03-21T03:58:31.596+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:58:31.602+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost:8080/error?continue to session
+2024-03-21T03:58:31.604+09:00 DEBUG 47356 --- [http-nio-8080-exec-2] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/view/login
+2024-03-21T03:58:31.610+09:00 DEBUG 47356 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /view/login
+2024-03-21T03:58:31.611+09:00 DEBUG 47356 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /view/login
+2024-03-21T03:58:31.617+09:00 DEBUG 47356 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /WEB-INF/views/login.jsp
+2024-03-21T03:58:31.618+09:00 DEBUG 47356 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /WEB-INF/views/login.jsp
+2024-03-21T03:58:31.777+09:00 DEBUG 47356 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:58:34.702+09:00 DEBUG 47356 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /view/login
+2024-03-21T03:58:34.703+09:00 DEBUG 47356 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /view/login
+2024-03-21T03:58:34.716+09:00 DEBUG 47356 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /WEB-INF/views/login.jsp
+2024-03-21T03:58:34.717+09:00 DEBUG 47356 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /WEB-INF/views/login.jsp
+2024-03-21T03:58:34.719+09:00 DEBUG 47356 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:58:35.834+09:00 DEBUG 47356 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /images/profile.png
+2024-03-21T03:58:35.836+09:00 DEBUG 47356 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /images/profile.png
+2024-03-21T03:58:35.861+09:00 DEBUG 47356 --- [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-03-21T03:59:06.050+09:00  INFO 47356 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21T03:59:06.055+09:00  INFO 47356 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-21T03:59:06.067+09:00  INFO 47356 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

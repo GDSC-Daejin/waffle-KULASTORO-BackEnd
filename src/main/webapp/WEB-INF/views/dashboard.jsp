@@ -28,10 +28,10 @@
     <hr/>
 
     <hr/>
-    <h3 class="overview-normalize">역할에 따른 페이지 이동 권한 확인</h3>
+    <h3 class="overview-normalize">게시판리스트로 이동하기</h3>
     <p>
-        <button onclick="location.href='/view/setting/admin'" class="btn btn-sm btn-success">관리자 설정 페이지(관리자만)</button>
-        <button onclick="location.href='/view/setting/user'" class="btn btn-sm btn-info">유저 설정 페이지(유저만)</button>
+        <button onclick="location.href='/diary/list'" class="btn btn-sm btn-success">게시판 리스트로 이동</button>
+
     </p>
     <hr/>
     <form method="post" action="/logout">

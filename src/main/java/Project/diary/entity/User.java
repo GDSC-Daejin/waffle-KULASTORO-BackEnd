@@ -5,6 +5,8 @@ import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Profile") // Table 이름 지정
 @Data
@@ -27,14 +29,14 @@ public class User {
 
     @Column(nullable = false)
     private String nickname;
+//
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY) // User 클래스의 user 필드를 매핑하고, 지연 로딩 방식 사용
+//    private List<Diary> diaries;  // 사용자와 연관된 일기 목록 필드 추가
+
 
     protected User() {}
 
-    public static User createUser(String userid, String password, String nickname) {
-        return new User(null, userid, password, nickname);
-    }
-
-    public void modify(String nickname, String password) {
+    public void modify(String nickname, String password) { // nickname 변경도 추가해야함
         this.nickname = nickname;
         this.password = password;
     }

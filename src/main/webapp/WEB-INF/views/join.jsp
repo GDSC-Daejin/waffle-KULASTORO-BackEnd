@@ -22,12 +22,14 @@
         </p>
         <p>
             <label for="password" class="sr-only">비밀번호</label>
-            <input type="password" id="password" name="pw" class="form-control" placeholder="비밀번호" required="">
+            <input type="password" id="password" name="password" class="form-control" placeholder="비밀번호" required="">
+            ${valid_password}
         </p>
 
         <p>
             <label for="nickname" class="sr-only">닉네임</label>
             <input type="text" id="nickname" name="nickname" class="form-control" placeholder="닉네임" required="">
+
         </p>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">회원가입</button>

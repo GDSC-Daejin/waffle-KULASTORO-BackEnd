@@ -2,7 +2,6 @@ package Project.diary.entity;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -24,6 +23,14 @@ public class CustomUser implements UserDetails {
     public String getNickname() {
         return nickname;
     }
+
+
+
+    public Project.diary.entity.User toUser() {
+        Project.diary.entity.User user = new User(username, password, nickname);
+        return user;
+    }
+
 
     @Override
     public String getUsername() {

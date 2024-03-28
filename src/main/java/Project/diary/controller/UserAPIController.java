@@ -53,6 +53,7 @@ public class UserAPIController {
 
     @GetMapping("/view/user_change")
     public String userChange(@AuthenticationPrincipal CustomUser customUser, Model model) {
+
         model.addAttribute("login_nickname", customUser.getNickname());
         model.addAttribute("login_userid" , customUser.getUsername());
         return "user_change";

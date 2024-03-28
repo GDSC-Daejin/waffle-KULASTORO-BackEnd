@@ -8,19 +8,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.List;
 
 @Entity
-@Table(name = "Profile") // Table 이름 지정
+@Table(name = "User") // Table 이름 지정
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // pk 값
-
-    @NotNull
-    @Column(unique = true, length=10) //유일하고 최대 길이가 10.
     private String userid;
 
     @NotNull
@@ -29,16 +25,21 @@ public class User {
 
     @Column(nullable = false)
     private String nickname;
-//
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY) // User 클래스의 user 필드를 매핑하고, 지연 로딩 방식 사용
-//    private List<Diary> diaries;  // 사용자와 연관된 일기 목록 필드 추가
 
 
-    protected User() {}
+    // 다대일 관계 설정 (사용자가 쓴 일기를 보여주려고)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Diary> diaries;
 
-    public void modify(String nickname, String password) { // nickname 변경도 추가해야함
+    public void modify(String nickname, String password) {
         this.nickname = nickname;
         this.password = password;
+    }
+
+    public User(String userid, String password, String nickname) {
+        this.userid = userid;
+        this.password = password;
+        this.nickname = nickname;
     }
 
 }

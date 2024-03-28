@@ -16,6 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Diary {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // 일기 고유번호
@@ -32,10 +33,9 @@ public class Diary {
     @Column
     private Date diarydate;
 
-    @ManyToOne(fetch = FetchType.LAZY) // 다대일 관계 한 사용자가 일기를 여러개 쓸수 있으니까
-    @JoinColumn(name = "userid")
-
-    private User user; // 사용자와 연결
+    @ManyToOne
+    @JoinColumn(name = "user_id") // 외래 키 설정
+    private User user;
 
 
     public void updateDiary(String title, String context, Date diarydate) {
@@ -43,6 +43,7 @@ public class Diary {
         this.context = context;
         this.diarydate = diarydate;
     }
+
 
 
 }

@@ -25,19 +25,11 @@ public class DiaryRegisterDTO {
     // 감정은 나중에 생성되므로, 초기값으로 null 할당.
     private String emotion = null;
 
-    // 나중에 감정이 생성되면 해당 일기의 감정을 업데이트하는 메서드를 추가
-    // public void updateEmotion(String emotion) {
-    //     this.emotion = emotion;
-    // }
-
     private Date diarydate;
 
+    private String userId; // 사용자 ID
 
 
-    // 감정 생성 이후에 일기에 감정을 할당하는 메서드.
-    // public void assignEmotion(String emotion) {
-    //     this.emotion = emotion;
-    // }
 
     public Diary toEntity() {
         Diary diary = Diary.builder()

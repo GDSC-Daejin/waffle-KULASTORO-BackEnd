@@ -8,6 +8,10 @@ import Project.diary.entity.Diary;
 import Project.diary.entity.DiaryCustomUser;
 import Project.diary.entity.User;
 import Project.diary.service.DiaryService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.Banner;
 import org.springframework.http.HttpStatus;
@@ -36,23 +40,8 @@ public class DiaryController {
     /**
      * 일기는 캘린더형식으로 넣으니까 id만 가져오도록
      */
-
-
-//    @GetMapping("/diary/list")
-//    public String getDiaryById(Model model) {
-//        List<Long> diaryId = diaryService.getDiaryById();
-//        model.addAttribute("diary", diaryId);
-//        return "diary_list";
-//    }
-
-    @GetMapping("/diary/{id}")
-    public String getDiaryById(@PathVariable Long id, Model model) {
-        DiaryResponseDTO dto = diaryService.getDiaryById(id);
-        model.addAttribute("diary", dto);
-        return "diary_detail";
-    }
-
     @GetMapping("/diary/list")
+    @Operation(summary = "로그인한 사용자가 자신이 쓴 일기만 볼 수 있도록 일기들의 id 들을 반환")
     public String getUserDiaries(@AuthenticationPrincipal CustomUser customUser, Model model) {
         if (customUser == null) {
             throw new RuntimeException("로그인한 사용자 정보를 가져올 수 없습니다.");
@@ -66,19 +55,36 @@ public class DiaryController {
 
     }
 
+    @GetMapping("/diary/{id}")
+    @Operation(summary = "일기 상세 페이지로 id를 통하여 값으로 이동")
+    public String getDiaryById(@PathVariable Long id, Model model) {
+        DiaryResponseDTO dto = diaryService.getDiaryById(id);
+        model.addAttribute("diary", dto);
+        return "diary_detail";
+    }
+
+
+
     @GetMapping("/diary/diary_update/{id}")
+    @Operation(summary = "일기 수정 id를 통하여 수정")
     public String diaryUpdate(@PathVariable Long id ,Model model) {
         DiaryResponseDTO dto = diaryService.getDiaryById(id);
         model.addAttribute("diary", dto); // 모델에 담아서 보여줄라고
         return "diary_update";
     }
 
+    @Operation(summary = "일기 생성 페이지로 이동")
     @GetMapping("/diary/create_diary")
     public String userChange() {
         return "diary_create";
     }
 
-
+    @Operation(summary = "일기 생성 로직")
+    @Parameter(name = "title", description = "제목)")
+    @Parameter(name = "context", description = "본문")
+    @Parameter(name = "emotion", description = "감정 값 인데 일단은 null ")
+    @Parameter(name = "diarydate", description = "현재 날짜 시간 ")
+    @Parameter(name = "loggedid", description = "닉네임도 표시하게 할수는 있음")
     @PostMapping("/diary/create")
     public Diary createDiary(@AuthenticationPrincipal CustomUser customUser, @RequestBody DiaryRegisterDTO dto) {
 
@@ -88,14 +94,20 @@ public class DiaryController {
     }
 
 
-
-    @PutMapping("/diary/update")
-    public ResponseEntity<String> updateDiary(@RequestBody DiaryRegisterDTO dto) {
+    @Operation(summary = "일기 수정 로직")
+    @Parameter(name = "title", description = "제목)")
+    @Parameter(name = "context", description = "본문")
+    @Parameter(name = "emotion", description = "감정 값 인데 일단은 null ")
+    @Parameter(name = "diarydate", description = "수정된 날짜시간 값")
+        @PutMapping("/diary/update")
+        public ResponseEntity<String> updateDiary(@RequestBody DiaryRegisterDTO dto) {
         diaryService.updateDiary(dto);
 
         return new ResponseEntity<>("성공~", HttpStatus.OK);
     }
 
+
+    @Operation(summary = "일기 삭제 로직 ")
     @DeleteMapping("/diary/{id}")
     public void deletePost(@PathVariable Long id) {
         diaryService.deleteDiary(id);

@@ -4,7 +4,14 @@ import Project.diary.entity.CustomUser;
 import Project.diary.DAO.UserRepository;
 import Project.diary.service.UserService;
 import Project.diary.validate.CheckUserNameValidate;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +31,7 @@ import java.util.*;
 
 @RequiredArgsConstructor
 @Controller
+
 public class UserAPIController {
 
     @Autowired
@@ -42,24 +50,40 @@ public class UserAPIController {
 
 
     @GetMapping("/view/join")
+    @Operation(summary = "회원가입 페이지로 이동")
     public String joinPage() {
         return "join";
     }
 
     @GetMapping("/view/login")
+    @Operation(summary = "로그인 페이지로 이동")
     public String loginPage() {
         return "login";
     }
 
     @GetMapping("/view/user_change")
-    public String userChange(@AuthenticationPrincipal CustomUser customUser, Model model) {
+    @Operation(summary = "회원 수정가입 수정 페이지로 이동하는 로직")
 
-        model.addAttribute("login_nickname", customUser.getNickname());
+    public String userChange(@AuthenticationPrincipal CustomUser customUser, Model model) {
+                model.addAttribute("login_nickname", customUser.getNickname());
         model.addAttribute("login_userid" , customUser.getUsername());
         return "user_change";
     }
 
+
+
     @PutMapping("/auth/update")
+    @Operation(summary = "회원 수정가입 로직을 진행")
+    @Positive(message = "유저 ID는 변경 안됩니다!.")
+    @Parameter(name = "login_userid", description = "로그인 유저 id 값(변경불가)")
+    @Parameter(name = "login_nickname", description = "로그인 유저 닉네임 값")
+    @Parameter(name = "password", description = "비밀번호 값")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "성공",
+                    content = {@Content(schema = @Schema(implementation = UserRequestDTO.class))}),
+            @ApiResponse(responseCode = "404", description = "해당 ID의 유저가 존재하지 않습니다."),
+            @ApiResponse(responseCode = "404", description = "해당 ID의 유저가 존재하지 않습니다.")
+    })
     public ResponseEntity<String> modifyUser(@RequestBody UserRequestDTO dto) {
         userService.UserModify(dto);
 
@@ -72,7 +96,7 @@ public class UserAPIController {
         return new ResponseEntity<>("성공~", HttpStatus.OK);
     }
 
-
+    @Operation(summary = "회원탈퇴 진행")
     @DeleteMapping("/auth/delete")
     public ResponseEntity<String> deleteUser(@AuthenticationPrincipal UserDetails userDetails) {
         String username = userDetails.getUsername();
@@ -86,11 +110,24 @@ public class UserAPIController {
 
 
     @PostMapping("/auth/join")
+    @Operation(summary = "회원가입 로직 진행")
+    @Parameter(name = "userid", description = "아이디는 중복불가!", example = "fbgmltn12")
+    @Parameter(name = "password", description = "비밀번호는 영어 소문자, 대문자, 특수문자 8자리 이상!" , example = "1q2w3e4R!")
+    @Parameter(name = "nickname", description = "자유롭게 닉네임", example = "새싹이")
+    @Parameter(name = "valid ~", description = "에러 메시지는 valid로 시작됩니다. Map형식으로 되어 있어서 valid로 시작하는거 키 : 그에 따른 메시지를 벨류로 하면 될거같아요")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "성공",
+                    content = {@Content(schema = @Schema(implementation = UserRequestDTO.class))}),
+            @ApiResponse(responseCode = "404", description = "해당 ID의 유저가 존재하지 않습니다."),
+    })
+
+
     public String join(@Valid @RequestBody UserRequestDTO dto, Errors errors, Model model) {
 
         /*  회원가입 실패시 날라가는 거 방지 */
         if (errors.hasErrors()) {
             model.addAttribute("dto", dto);
+
 
 
        //   가입 조건 로직 통과 못한것들 핸들링

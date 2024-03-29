@@ -49,7 +49,7 @@ public class UserService {
         for (FieldError error : errors.getFieldErrors()) {
             String validKeyName = String.format("valid_%s", error.getField()); // valid 접두사가 붙은 필드 이름 지정
             validResult.put(validKeyName, error.getDefaultMessage());
-            log.debug("검증 오류 - 필드: {}, 메시지: {}", validKeyName, error.getDefaultMessage());
+//            log.debug("검증 오류 - 필드: {}, 메시지: {}", validKeyName, error.getDefaultMessage());
         }
         return validResult;
     }

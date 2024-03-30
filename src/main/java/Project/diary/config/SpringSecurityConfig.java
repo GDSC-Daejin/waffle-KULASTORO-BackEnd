@@ -43,10 +43,8 @@ public class SpringSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .requestMatchers( "/swagger-ui/**" , "view/join", "/status", "/auth/join", "/images/**", "auth/update", "auth/delete", "diary/**", "diary/create", "diary/list").permitAll() // 예외처리(인증없이도 들어가는)
+                        .requestMatchers( "/swagger-ui/**" , "view/join", "/status", "/auth/join", "/images/**", "auth/update", "auth/delete", "diary/**", "diary/list").permitAll() // 예외처리(인증없이도 들어가는)
                         .anyRequest().authenticated()// 어떤 요청이든 로그인해야함
-
-
 
                 )
                 .formLogin((formLogin) -> formLogin

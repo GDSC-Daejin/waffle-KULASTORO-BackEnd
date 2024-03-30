@@ -118,30 +118,21 @@ public class UserAPIController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "성공",
                     content = {@Content(schema = @Schema(implementation = UserRequestDTO.class))}),
-            @ApiResponse(responseCode = "404", description = "해당 ID의 유저가 존재하지 않습니다."),
+            @ApiResponse(responseCode = "400", description = "해당 ID의 유저가 존재하지 않습니다."),
     })
 
 
-    public String join(@Valid @RequestBody UserRequestDTO dto, Errors errors, Model model) {
-
-        /*  회원가입 실패시 날라가는 거 방지 */
+    public ResponseEntity<?> join(@Valid @RequestBody UserRequestDTO dto, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("dto", dto);
-
-
-
-       //   가입 조건 로직 통과 못한것들 핸들링
-
             Map<String, String> validatorResult = userService.validateHandler(errors);
-
             for (String key : validatorResult.keySet()) {
                 model.addAttribute(key, validatorResult.get(key));
             }
-
-            return "view/join"; // 회원가입 페이지로 다시 리턴
+            return ResponseEntity.badRequest().body("error.");
         }
         userService.join(dto);
-        return "redirect:/auth/login";
+        return ResponseEntity.status(HttpStatus.CREATED).body("User created successfully");
     }
 
 

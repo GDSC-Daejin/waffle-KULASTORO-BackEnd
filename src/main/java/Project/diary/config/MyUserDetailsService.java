@@ -1,5 +1,5 @@
-
 package Project.diary.config;
+
 import Project.diary.entity.CustomUser;
 import Project.diary.entity.User;
 import Project.diary.service.UserService;

@@ -45,7 +45,7 @@ public class UserService {
     public Map<String, String> validateHandler(Errors errors) {
         Map<String, String> validResult = new HashMap<>();
 
-        // 조건 실패한 필드 목록r
+        // 조건 실패한 필드 목록
         for (FieldError error : errors.getFieldErrors()) {
             String validKeyName = String.format("valid_%s", error.getField()); // valid 접두사가 붙은 필드 이름 지정
             validResult.put(validKeyName, error.getDefaultMessage());

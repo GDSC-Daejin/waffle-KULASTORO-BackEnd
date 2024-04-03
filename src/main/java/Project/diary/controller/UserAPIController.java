@@ -31,7 +31,6 @@ import java.util.*;
 
 @RequiredArgsConstructor
 @Controller
-
 public class UserAPIController {
 
     @Autowired
@@ -63,13 +62,11 @@ public class UserAPIController {
 
     @GetMapping("/view/user_change")
     @Operation(summary = "회원 수정가입 수정 페이지로 이동하는 로직")
-
     public String userChange(@AuthenticationPrincipal CustomUser customUser, Model model) {
                 model.addAttribute("login_nickname", customUser.getNickname());
         model.addAttribute("login_userid" , customUser.getUsername());
         return "user_change";
     }
-
 
 
     @PutMapping("/auth/update")
@@ -82,7 +79,6 @@ public class UserAPIController {
             @ApiResponse(responseCode = "200", description = "성공",
                     content = {@Content(schema = @Schema(implementation = UserRequestDTO.class))}),
             @ApiResponse(responseCode = "404", description = "해당 ID의 유저가 존재하지 않습니다."),
-            @ApiResponse(responseCode = "404", description = "해당 ID의 유저가 존재하지 않습니다.")
     })
     public ResponseEntity<String> modifyUser(@RequestBody UserRequestDTO dto) {
         userService.UserModify(dto);
@@ -109,7 +105,7 @@ public class UserAPIController {
 
 
 
-    @PostMapping("/auth/join")
+
     @Operation(summary = "회원가입 로직 진행")
     @Parameter(name = "userid", description = "아이디는 중복불가!", example = "fbgmltn12")
     @Parameter(name = "password", description = "비밀번호는 영어 소문자, 대문자, 특수문자 8자리 이상!" , example = "1q2w3e4R!")
@@ -122,6 +118,9 @@ public class UserAPIController {
     })
 
 
+
+
+    @PostMapping("/auth/join")
     public ResponseEntity<?> join(@Valid @RequestBody UserRequestDTO dto, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("dto", dto);

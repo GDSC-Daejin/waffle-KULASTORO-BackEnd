@@ -29,8 +29,6 @@ public class DiaryService {
 
     private final UserService userService;
 
-
-
     @Transactional
     public List<Long> getDiaryListById(@AuthenticationPrincipal CustomUser customUser) {
 

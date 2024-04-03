@@ -10,6 +10,7 @@ import Project.diary.entity.User;
 import Project.diary.service.DiaryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
@@ -34,8 +35,6 @@ import java.util.List;
 public class DiaryController {
 
     private final DiaryService diaryService;
-
-
 
     /**
      * 일기는 캘린더형식으로 넣으니까 id만 가져오도록
@@ -64,7 +63,6 @@ public class DiaryController {
     }
 
 
-
     @GetMapping("/diary/diary_update/{id}")
     @Operation(summary = "일기 수정 id를 통하여 수정")
     public String diaryUpdate(@PathVariable Long id ,Model model) {
@@ -79,6 +77,7 @@ public class DiaryController {
         return "diary_create";
     }
 
+
     @Operation(summary = "일기 생성 로직")
     @Parameter(name = "title", description = "제목)")
     @Parameter(name = "context", description = "본문")
@@ -86,11 +85,13 @@ public class DiaryController {
     @Parameter(name = "diarydate", description = "현재 날짜 시간 ")
     @Parameter(name = "loggedid", description = "닉네임도 표시하게 할수는 있음")
     @PostMapping("/diary/create")
-    public Diary createDiary(@AuthenticationPrincipal CustomUser customUser, @RequestBody DiaryRegisterDTO dto) {
-
+    @ApiResponse(responseCode = "201", description = "응답확인 ")
+    public ResponseEntity<Diary> createDiary(@AuthenticationPrincipal CustomUser customUser, @RequestBody DiaryRegisterDTO dto) {
         String loggedId = customUser.getUsername();
-        return diaryService.createDiary(dto, loggedId);
+        Diary createdDiary = diaryService.createDiary(dto, loggedId);
 
+        // 성공적으로 생성된 경우 201(Created) 상태 코드와 함께 생성된 일기 객체를 반환합니다.
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdDiary);
     }
 
 
@@ -100,16 +101,20 @@ public class DiaryController {
     @Parameter(name = "emotion", description = "감정 값 인데 일단은 null ")
     @Parameter(name = "diarydate", description = "수정된 날짜시간 값")
         @PutMapping("/diary/update")
+    @ApiResponse(responseCode = "200", description = "성공 코드200")
         public ResponseEntity<String> updateDiary(@RequestBody DiaryRegisterDTO dto) {
         diaryService.updateDiary(dto);
 
         return new ResponseEntity<>("성공~", HttpStatus.OK);
     }
 
-
     @Operation(summary = "일기 삭제 로직 ")
     @DeleteMapping("/diary/{id}")
-    public void deletePost(@PathVariable Long id) {
+    @ApiResponse(responseCode = "200", description = "삭제 성공 코드 200")
+    public ResponseEntity<String> deletePost(@PathVariable Long id) {
         diaryService.deleteDiary(id);
+
+        return ResponseEntity.status(HttpStatus.OK).body("일기가 성공적으로 삭제되었습니다.");
+
     }
 }

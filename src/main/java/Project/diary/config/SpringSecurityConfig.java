@@ -14,7 +14,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+
+
 
 @Configuration
 @EnableWebSecurity
@@ -40,7 +41,7 @@ public class SpringSecurityConfig {
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
 //                        .requestMatchers( "/swagger-ui/**" , "view/join", "/status", "/auth/join", "/images/**", "auth/update", "auth/delete", "diary/**", "diary/list").permitAll() // 예외처리(인증없이도 들어가는)
@@ -57,6 +58,7 @@ public class SpringSecurityConfig {
         httpSecurity
                 .logout((logout) -> logout.logoutSuccessUrl("/auth/login")
                         .invalidateHttpSession(true)); // http 세션 초기화
+
         return httpSecurity.build();
     }
 }

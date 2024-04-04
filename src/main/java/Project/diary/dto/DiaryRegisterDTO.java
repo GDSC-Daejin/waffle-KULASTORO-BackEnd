@@ -2,7 +2,6 @@ package Project.diary.dto;
 
 
 import Project.diary.entity.Diary;
-import Project.diary.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

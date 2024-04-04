@@ -1,7 +1,6 @@
 package Project.diary.service;
 
 import Project.diary.DAO.DiaryDAO;
-import Project.diary.DAO.UserRepository;
 import Project.diary.dto.DiaryRegisterDTO;
 import Project.diary.dto.DiaryResponseDTO;
 import Project.diary.entity.CustomUser;
@@ -9,7 +8,6 @@ import Project.diary.entity.Diary;
 import Project.diary.entity.User;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;

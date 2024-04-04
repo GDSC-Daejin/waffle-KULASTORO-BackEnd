@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/view")
-@CrossOrigin(originPatterns = {"http://localhost:3000"})
+//@CrossOrigin(originPatterns = {"http://localhost:3000"})
 
 public class ViewController {
 

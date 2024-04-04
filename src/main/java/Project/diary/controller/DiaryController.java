@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(originPatterns = {"http://localhost:3000"})
+//@CrossOrigin(originPatterns = {"http://localhost:3000"})
 public class DiaryController {
 
     private final DiaryService diaryService;

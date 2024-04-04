@@ -2,23 +2,36 @@ package Project.diary.controller;
 
 import Project.diary.dto.DiaryRegisterDTO;
 import Project.diary.dto.DiaryResponseDTO;
+import Project.diary.dto.UserRequestDTO;
 import Project.diary.entity.CustomUser;
 import Project.diary.entity.Diary;
+import Project.diary.entity.DiaryCustomUser;
+import Project.diary.entity.User;
 import Project.diary.service.DiaryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.Banner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.nio.file.AccessDeniedException;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-//@CrossOrigin(originPatterns = {"http://localhost:3000"})
 public class DiaryController {
 
     private final DiaryService diaryService;

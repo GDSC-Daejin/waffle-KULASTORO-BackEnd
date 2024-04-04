@@ -31,8 +31,6 @@ import java.util.*;
 
 @RequiredArgsConstructor
 @Controller
-//@CrossOrigin(originPatterns = {"http://localhost:3000"})
-
 public class UserAPIController {
 
     @Autowired

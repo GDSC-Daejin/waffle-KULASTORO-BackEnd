@@ -31,6 +31,7 @@ import java.util.*;
 
 @RequiredArgsConstructor
 @Controller
+@CrossOrigin(originPatterns = {"http://localhost:3000"})
 public class UserAPIController {
 
     @Autowired
@@ -116,10 +117,6 @@ public class UserAPIController {
                     content = {@Content(schema = @Schema(implementation = UserRequestDTO.class))}),
             @ApiResponse(responseCode = "400", description = "해당 ID의 유저가 존재하지 않습니다."),
     })
-
-
-
-
     @PostMapping("/auth/join")
     public ResponseEntity<?> join(@Valid @RequestBody UserRequestDTO dto, Errors errors, Model model) {
         if (errors.hasErrors()) {

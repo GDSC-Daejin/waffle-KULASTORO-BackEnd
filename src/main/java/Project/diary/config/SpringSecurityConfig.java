@@ -41,7 +41,7 @@ public class SpringSecurityConfig {
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
 //                        .requestMatchers( "/swagger-ui/**" , "view/join", "/status", "/auth/join", "/images/**", "auth/update", "auth/delete", "diary/**", "diary/list").permitAll() // 예외처리(인증없이도 들어가는)

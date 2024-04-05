@@ -32,13 +32,11 @@ public class DiaryController {
         if (customUser == null) {
             throw new RuntimeException("로그인한 사용자 정보를 가져올 수 없습니다.");
         }
-
         List<Long> diaryIds = diaryService.getDiaryListById(customUser); // 이전에 작성한 getDiaryListById 메서드 호출
 
         model.addAttribute("diaryIds", diaryIds);
 
         return "diary_list";
-
     }
 
     @GetMapping("/diary/{id}")
@@ -77,7 +75,7 @@ public class DiaryController {
         String loggedId = customUser.getUsername();
         Diary createdDiary = diaryService.createDiary(dto, loggedId);
 
-        // 성공적으로 생성된 경우 201(Created) 상태 코드와 함께 생성된 일기 객체를 반환합니다.
+        // 성공적으로 생성된 경우 201(Created) 상태 코드와 함께 생성된 일기 객체를 반환.
         return ResponseEntity.status(HttpStatus.CREATED).body(createdDiary);
     }
 
@@ -91,7 +89,6 @@ public class DiaryController {
     @ApiResponse(responseCode = "200", description = "성공 코드200")
         public ResponseEntity<String> updateDiary(@RequestBody DiaryRegisterDTO dto) {
         diaryService.updateDiary(dto);
-
         return new ResponseEntity<>("성공~", HttpStatus.OK);
     }
 
@@ -104,4 +101,6 @@ public class DiaryController {
         return ResponseEntity.status(HttpStatus.OK).body("일기가 성공적으로 삭제되었습니다.");
 
     }
+
+
 }

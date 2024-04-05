@@ -53,7 +53,7 @@ public class SpringSecurityConfig {
                         .loginProcessingUrl("/login-proc") // 실제 로그인이 요청되는 로직(컨트롤러 대신 security 가 인터셉트)
                         .usernameParameter("userid")
                         .passwordParameter("pw")
-                        .defaultSuccessUrl("/view/dashboard", true)
+                        .defaultSuccessUrl("/diary/list", true)
                         .permitAll()); // 대시보드 이용하기 위함
         httpSecurity
                 .logout((logout) -> logout.logoutSuccessUrl("/auth/login")

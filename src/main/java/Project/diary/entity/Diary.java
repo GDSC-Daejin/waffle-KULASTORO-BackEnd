@@ -44,6 +44,9 @@ public class Diary {
         this.diarydate = diarydate;
     }
 
+    public void updateEmotion(String emotion) {
+        this.emotion = emotion;
+    }
 
 
 }
